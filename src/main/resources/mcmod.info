@@ -1,0 +1,16 @@
+[
+{
+  "modid": "bmtr",
+  "name": "Bring me the rings!",
+  "description": "Extends the number of rings available in baubles!",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Zabi94"],
+  "credits": "Azanor, author of Baubles",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

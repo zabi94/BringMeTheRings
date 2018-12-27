@@ -1,0 +1,59 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url = "https://files.minecraftforge.net/maven" }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+    }
+}
+apply plugin: 'net.minecraftforge.gradle.forge'
+//Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
+
+
+version = "0.3"
+group = "zabi.minecraft.bmtr"
+archivesBaseName = "BringMeTheRings"
+
+sourceCompatibility = targetCompatibility = '1.8'
+compileJava {
+    sourceCompatibility = targetCompatibility = '1.8'
+}
+
+repositories {
+	maven {
+        name = "thiakil"
+        url = "http://maven.thiakil.com"
+    }
+}
+
+jar {
+	manifest {
+		attributes 'FMLCorePlugin': 'zabi.minecraft.bmtr.core.BMTRPlugin'
+		attributes 'FMLCorePluginContainsFMLMod': 'true'
+	}
+}
+
+minecraft {
+    version = "1.12.2-14.23.5.2796"
+    runDir = "run"
+    mappings = "stable_39"
+    coreMod = "zabi.minecraft.bmtr.core.BMTRPlugin"
+}
+
+dependencies {
+	deobfCompile "com.azanor.baubles:Baubles:1.12-1.5.2"
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
