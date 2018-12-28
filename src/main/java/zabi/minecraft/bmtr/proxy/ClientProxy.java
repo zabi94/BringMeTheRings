@@ -1,7 +1,5 @@
 package zabi.minecraft.bmtr.proxy;
 
-import org.lwjgl.util.Point;
-
 import baubles.client.gui.GuiPlayerExpanded;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.util.ResourceLocation;
@@ -9,6 +7,7 @@ import net.minecraftforge.client.event.GuiScreenEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import zabi.minecraft.bmtr.BringMeTheRings;
+import zabi.minecraft.bmtr.Point;
 import zabi.minecraft.bmtr.PositionHelper;
 
 public class ClientProxy extends CommonProxy {

@@ -2,8 +2,6 @@ package zabi.minecraft.bmtr;
 
 import java.util.ArrayList;
 
-import org.lwjgl.util.Point;
-
 public class PositionHelper {
 	
 	public static ArrayList<Point> slotCoords = new ArrayList<>();
