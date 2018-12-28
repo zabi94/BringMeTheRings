@@ -11,7 +11,7 @@ import zabi.minecraft.bmtr.proxy.CommonProxy;
 public class BringMeTheRings {
 	public static final String ID = "bmtr";
 	public static final String NAME = "Bring me the rings";
-	public static final String VERSION = "0.3";
+	public static final String VERSION = "0.4";
 	public static final String DEPS = "required-after:baubles";
 	
 	@Instance
