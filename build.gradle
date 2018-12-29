@@ -11,7 +11,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 
-version = "0.4"
+version = "0.5"
 group = "zabi.minecraft.bmtr"
 archivesBaseName = "BringMeTheRings"
 
@@ -39,6 +39,8 @@ minecraft {
     runDir = "run"
     mappings = "stable_39"
     coreMod = "zabi.minecraft.bmtr.core.BMTRPlugin"
+    replace '@VERSION@', project.version
+    replace '@FINGERPRINT@', project.findProperty('signSHA1')
 }
 
 dependencies {
@@ -57,3 +59,19 @@ processResources {
         exclude 'mcmod.info'
     }
 }
+
+task signJar(type: SignJar, dependsOn: reobfJar) {
+
+    onlyIf {
+        project.hasProperty('keyStore')
+    }
+
+    keyStore = project.findProperty('keyStore')
+    alias = project.findProperty('keyStoreAlias')
+    storePass = project.findProperty('keyStorePass')
+    keyPass = project.findProperty('keyStoreKeyPass')
+    inputFile = jar.archivePath
+    outputFile = jar.archivePath
+}
+
+build.dependsOn signJar
